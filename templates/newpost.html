@@ -307,7 +307,7 @@
       </div>
 <div class="container wrap">
     <!-- Content here -->
-    <form method="POST" enctype=multipart/form-data  onsubmit="return checkallpost()">
+    <form method="POST" enctype=multipart/form-data  onsubmit="return checkallpost()" action="{{ url_for("createnewpost") }}">
         {#         add form here#}
         <div class="row">
             <div class="col-md-6">
@@ -334,7 +334,7 @@
 
                 <label for="post">Name your discussion</label>
                 <form>
-                    <input type="post" class="form-control" id="pos" placeholder="" name="post_name">
+                    <input type="text" class="form-control" id="pos" placeholder="" name="topic_name">
 
                     <div id="posstatus">
 
@@ -345,18 +345,12 @@
                 <label for="post">Choose the right category</label>
                 <div class="dropdown">
 
-                    <select class="selectpicker" multiple title="Choose a category">
+                    <select class="selectpicker" multiple title="Choose a category" name="category_name">
 {#                            <option value="selected" selected>Category : </option>#}
 {#                        >#}
-                        <option value="phone">Architecture</option>
-                        <option value="computer">Arts</option>
-                        <option value="beauty">Business</option>
-                        <option value="clothing">Communication Arts</option>
-                        <option value="bag">Econimic</option>
-                        <option value="watch">Engineering</option>
-                        <option value="shoes">Psychology</option>
-                        <option value="sport">General Education</option>
-                        <option value="games">Activities</option>
+                        {% for category in cat %}
+                        <option value="{{ category[0] }}">{{ category[1] }}</option>
+                        {% endfor %}
                         </select>
                 </div>
 
@@ -365,7 +359,7 @@
 
                 <br>
                 <label for="post">Enter your discussion content</label>
-                <textarea class="form-control" rows="5" id="detail" name="info"></textarea>
+                <textarea class="form-control" rows="5" id="detail" name="content"></textarea>
                 <input type="hidden" name="status" value="SELL">
 
                 <div id="detailstatus">
