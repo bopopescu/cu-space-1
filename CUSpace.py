@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 import math
 #NOTE!!
 #install flask-mysql first by writing in terminal "pip install flask-mysql" in order to use
@@ -56,11 +56,40 @@ def profile():
 
 @app.route('/newpost')
 def newpost():
-    return render_template('newpost.html')
+    category = getCat()
+    return render_template('newpost.html' , cat = category)
+
+@app.route('/newpost/create_new_discussion', methods=['POST'])
+def createnewpost():
+    topic = request.form['topic_name']
+    categoryList = request.form.get('category_name')
+    discussion = request.form['content']
+    user_id = "123456" #change later
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    try:
+        sqlPostDis = """INSERT INTO `discussion`(`User_id`, `Topic`, `Content`) 
+                        VALUES (%s,%s,%s)"""
+        cursor.execute(sqlPostDis, (user_id, topic, discussion))
+        print(cursor.lastrowid)
+        dis_id = cursor.lastrowid
+        try:
+            sqlPostDis_Cat_Grp = """INSERT INTO `dis_category_group`(`Dis_id`, `Dis_cat_id`) 
+                                    VALUES (%s,%s)"""
+            cursor.execute(sqlPostDis_Cat_Grp, (dis_id, categoryList))
+            conn.commit()
+            cursor.close()
+            conn.close()
+        except:
+            print("Cannot Insert into dis_category_group")
+    except:
+        print("Cannot Insert value into discussion")
+    return redirect(url_for("newpost"))
 
 @app.route('/registernewtutor')
 def registernewtutor():
     return render_template('newtutor.html')
+
 
 
 @app.route('/discussion/<category>/', defaults={'page':1})
@@ -69,14 +98,8 @@ def discussion(category, page):
     numDataStart = ((int(page)-1)*15)
     numDataEnd = int(page)*15
     conn = mysql.connect()
-    cursorCat = conn.cursor()
-    sqlCat = """SELECT * FROM dis_category"""
-    try:
-        cursorCat.execute(sqlCat)
-        categoryList = cursorCat.fetchall()
-        categoryName = [i[1] for i in categoryList]
-    except:
-        print("Cannot query category name")
+    categoryList = getCat()
+    categoryName = [i[1] for i in categoryList]
     if(category in categoryName):
         cursor = conn.cursor()
         # sqlListed = """SELECT catgrp.dis_cat_group_id
@@ -122,7 +145,20 @@ def discussion(category, page):
         except:
             print("Cannot query the data in Category: "+category)
         cursor.close()
+        conn.close()
         return render_template('discussion.html',cat = category, discussion = dataWanted, numofPage = numPage)
 
+
+def getCat():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    sqlCat = """SELECT * FROM dis_category"""
+    try:
+        cursor.execute(sqlCat)
+        categoryList = cursor.fetchall()
+        return categoryList
+    except:
+        print("Cannot query category name")
+    conn.close()
 if __name__ == '__main__':
     app.run()
