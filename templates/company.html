@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Company - {% endblock %}
+{% block head %}
+    {{ super() }}
+{#    Put additional head code here #}
+    <style>
+    .jumbotron {
+{#        background-image: url("/static/img/job.jpg");#}
+        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/static/img/company.jpg');
+        color: white;
+    }
+    .btn-secondary{
+        background-color: #6c757d;
+        color: white;
+    }
+    .btn-secondary:hover{
+        background-color: #5a6268;
+        color: white;
+    }
+    .filter{
+        color: #999999;
+    }
+    .company-img {
+        float: left;
+        margin-right: 5px;
+    }
+    .job-name{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .company-profile{
+        margin-left: 20%;
+        margin-right: 20%;
+        font-size: 17px;
+    }
+    .company-profile a:hover{
+        text-decoration: none;
+    }
+    .job-name a {
+        color:black;
+    }
+    .job-name a:hover {
+        color: #1f75e1;
+        text-decoration: none;
+    }
+    .job-item-footer {
+        color: darkgray;
+    }
+    .job-cat{
+        float:left;
+    }
+    .job-date{
+        float: right;
+    }
+    .search-box {
+        float: left;
+        margin-top: 16px;
+        color: black;
+    }
+    .search-box input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+    }
+    .search-box button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+}
+
+.search-box button:hover {
+  background: #ccc;
+}
+    </style>
+{% endblock %}
+{% block content %}
+      <div class="jumbotron">
+        <div class="container">
+            <div align="center"><img class="rounded-circle" src="/static/img/agoda.png" alt="Generic placeholder image" width="170" height="170"></div>
+{#            <h1 class="display-3" align="center">Agoda Services Co., Ltd.</h1>#}
+        </div>
+      </div>
+      <div class="container" align="center">
+          <h1>Agoda Services Co., Ltd.</h1>
+          <br>
+          <p class="company-profile">Agoda is one of the world’s largest online hotel and accommodation booking platforms. Founded in 2005 and now part of Booking Holdings, Agoda offers travelers a fast, easy way to book hundreds of thousands of properties in almost every country on earth.
+In every department – from engineering to customer experience – Agoda provides an environment rich with creativity, collaboration, and experimentation, and the tools to work faster and smarter than almost anyone out there.
+          </p>
+          <br>
+          <p class="company-profile"><a href="/job">VIEW OPENING JOB</a></p>
+
+      </div>
+
+      <hr>
+
+      </div> <!-- /container -->
+{% endblock %}

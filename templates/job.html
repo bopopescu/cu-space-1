@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block title %}Jobs - {% endblock %}
+{% block head %}
+    {{ super() }}
+{#    Put additional head code here #}
+    <style>
+    .jumbotron {
+{#        background-image: url("/static/img/job.jpg");#}
+        background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('/static/img/job.jpg');
+        color: white;
+    }
+    .btn-secondary{
+        background-color: #6c757d;
+        color: white;
+    }
+    .btn-secondary:hover{
+        background-color: #5a6268;
+        color: white;
+    }
+    .filter{
+        color: #999999;
+    }
+    .company-img {
+        float: left;
+        margin-right: 5px;
+    }
+    .job-name{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .job-name a {
+        color:black;
+    }
+    .job-name a:hover {
+        color: #377bb5;
+        text-decoration: none;
+    }
+    .company-name a {
+        color:black;
+    }
+    .company-name a:hover {
+        color: #377bb5;
+        text-decoration: none;
+    }
+    .job-item-footer {
+        color: darkgray;
+    }
+    .job-cat{
+        float:left;
+    }
+    .job-date{
+        float: right;
+    }
+    .search-box {
+        float: left;
+        margin-top: 16px;
+        color: black;
+    }
+    .search-box input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+    }
+    .search-box button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-box button:hover {
+     background: #ccc;
+    }
+
+    @font-face {
+        font-family: "Nunito-Regular";
+        src: url("static/fonts/Nunito-Regular.ttf");
+        }
+
+    h4 {
+        font-family: 'Nunito-Regular', "Helvetica Neue", sans-serif;
+        font-weight:normal;
+        font-style:normal;
+    }
+
+    a{
+        color: white;
+    }
+
+    </style>
+{% endblock %}
+{% block content %}
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Kickstart on your career!</h1>
+          <p>Our filtering system can help you find the right job for you.</p>
+            <div class="search-box">
+                <form action="#">
+                    <input type="text" placeholder="Search jobs..." name="search" size="35">
+                    <button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="container">
+              <div class="filter" align="center">
+                  <form class="form-inline">
+                    <div class="form-group">
+                        <select class="selectpicker" multiple title="All work">
+                            <option>Technology</option>
+                            <option>Marketing</option>
+                            <option>Operation Management</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>From</label>
+{#                        <input type="text" class="form-control" id="company-name-search" placeholder="All company">#}
+                        <select class="selectpicker" data-live-search="true" multiple title="All company">
+                            <option data-tokens="agoda services">Agoda Services Co., Ltd.</option>
+                            <option data-tokens="ms microsoft thailand">Microsoft Thailand Co., Ltd.</option>
+                            <option data-tokens="bangkok price water house PricewaterhouseCoopers pwc">Bangkok PricewaterhouseCoopers ABAS Ltd.</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Filter</button>
+                  </form>
+              </div>
+          <br>
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="job-item-header">
+                <div class="company-img"><img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="42" height="42"></div>
+                <div class="job-link">
+                    <h4 class="job-name"><a href="/job-profile">Senior Mobile Developer</a></h4>
+                    <h6 class="company-name"><a href="/company">Agoda Services Co., Ltd.</a></h6>
+                </div>
+                </div>
+              <p>Agoda is the largest and fastest growing online hotel booking platform in Asia, and is a Booking Holdings (BKNG) company, the world’s leading provider of brands that help people book great experiences through technology. We understand the value of a great mobile experience for our custome...</p>
+                <div class="job-item-footer">
+                    <div class="job-cat">
+                        Technology
+                    </div>
+                    <div class="job-date">
+                        <span class="glyphicon glyphicon-calendar"></span> Apr 12, 2018
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="job-item-header">
+                <div class="company-img"><img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="42" height="42"></div>
+                <div class="job-link">
+                    <h4 class="job-name"><a href="/job-profile">PPC Coordinator</a></h4>
+                    <h6 class="company-name"><a href="/company">Microsoft Thailand Co., Ltd.</a></h6>
+                </div>
+                </div>
+              <p>The SEM / PPC Coordinator will be responsible for supporting decision making for on-line advertising (PPC) campaigns, thus experience in working with data would be a big advantage.   The responsibilities would include creating uploading and maintaining advertising assets in online accounts, sup...</p>
+                <div class="job-item-footer">
+                    <div class="job-cat">
+                        Marketing
+                    </div>
+                    <div class="job-date">
+                        <span class="glyphicon glyphicon-calendar"></span> Apr 07, 2018
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="job-item-header">
+                <div class="company-img"><img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="42" height="42"></div>
+                <div class="job-link">
+                    <h4 class="job-name"><a href="/job-profile">Senior Supply Innovation Manager</a></h4>
+                    <h6 class="company-name"><a href="/company">Bangkok PricewaterhouseCoopers ABAS Ltd.</a></h6>
+                </div>
+                </div>
+              <p>Role Purpose: As Senior Supply Innovation Manager – Partner Services Team, the key objective will be to improve operational efficiencies to achieve objectives of the Partner Service Team. In doing so, this individual will bring a strong project management and analytical acumen coupled wit...</p>
+                <div class="job-item-footer">
+                    <div class="job-cat">
+                        Operation Management
+                    </div>
+                    <div class="job-date">
+                        <span class="glyphicon glyphicon-calendar"></span> Mar 27, 2018
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+{% endblock %}

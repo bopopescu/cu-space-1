@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block head %}
+    {{ super() }}
+          <style>
+
+
+        .jumbotron {
+{#        background-image: url("/static/img/job.jpg");#}
+        background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('/static/img/tutor.jpg');
+        color: white;
+    }
+        .col-sm-4{
+          margin-bottom: 5px;
+        }
+
+        .col-md-10{
+            margin-left: 10%;
+        }
+
+        #activitiesimgcontainer{
+          margin-left: 15px;
+        }
+
+        .text-block {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: black;
+            color: white;
+            {#opacity: 1;#}
+        }
+
+            .btn-secondary{
+        background-color: #6c757d;
+        color: white;
+        position: absolute;
+        bottom: 0;
+
+    }
+    .btn-secondary:hover{
+        background-color: #5a6268;
+        color: white;
+    }
+    .search-container {
+        float: left;
+        margin-top: 16px;
+        color: black;
+    }
+    .search-container input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+    }
+    .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+
+        .col-sm-2{
+            width: 170px;
+        }
+
+        .facultytext {
+            position: inherit;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            font-family: "Helvetica Neue";
+            color: white;
+            white-space:nowrap;
+        }
+
+
+        .facultytext span{
+           color: white;
+           letter-spacing: -1px;
+           background: rgb(0,0,0); /* fallback color */
+           background: rgba(0,0,0, 0.7);
+           padding: 10px;
+            opacity: 1;
+            border-radius: 25px;
+             -webkit-transition: .3s linear;
+            transition: .3s linear;
+        }
+
+        .facultytext:hover span{
+           color: black;
+           letter-spacing: -1px;
+           background: rgb(0,0,0);
+           background: rgba(255, 204, 0, 1);
+           padding: 10px;
+            opacity: 1;
+            border-radius: 25px;
+             -webkit-transition: .3s linear;
+            transition: .3s linear;
+
+        }
+
+
+        #firstcol{
+          margin-right:  240px;
+        }
+
+        .activitiestext {
+            position: absolute;
+            top: 50%;
+            left: 42%;
+            font-size: 2.5em;
+            font-family: "Helvetica Neue";
+            {#opacity: 0.5;#}
+            color: white;
+            white-space:nowrap;
+        }
+
+
+        .activitiestext span{
+           color: white;
+           letter-spacing: -1px;
+           background: rgb(0,0,0); /* fallback color */
+           background: rgba(0,0,0, 0.7);
+           padding: 10px;
+            opacity: 1;
+            border-radius: 25px;
+             -webkit-transition: .3s linear;
+            transition: .3s linear;
+
+        }
+
+        .activitiestext:hover span{
+           color: black;
+           letter-spacing: -1px;
+           background: rgb(0,0,0); /* fallback color */
+           background: rgba(255, 204, 0, 1);
+           padding: 10px;
+            opacity: 1;
+            border-radius: 25px;
+             -webkit-transition: .3s linear;
+            transition: .3s linear;
+
+        }
+
+
+      </style>
+{% endblock %}
+{% block content %}
+{#    <div class="container-fluid" align="center">#}
+    <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Find a discussion</h1>
+          <p>Our filtering system can help you find a discussion for you.</p>
+            <div class="search-container">
+                <form action="#">
+                    <input type="text" placeholder="Find discussion..." name="search" size="35">
+                    <button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </form>
+            </div>
+        </div>
+      </div>
+
+    <div class="col-md-10">
+					<div class="row">
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[0]) }}">
+                     <img class="img-responsive" id="architectureimg" src="/static/img/architecture.jpg" >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>ARCHITECTURE</span></div>
+                     </div>
+                 </a>
+						</div>
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[1]) }}">
+                     <img class="img-responsive" id="artsimg" src="/static/img/arts.jpg"  >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>ARTS</span></div>
+                     </div>
+                 </a>
+						</div>
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[2]) }}">
+                     <img class="img-responsive" id="businessimg" src="/static/img/business.jpg" >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>BUSINESS</span></div>
+                     </div>
+                 </a>
+						</div>
+					</div>
+
+
+          <div class="row">
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[3]) }}">
+                     <img class="img-responsive" id="communicationartsimg" src="/static/img/communicationarts.jpg" >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>COMMUNICATION_ARTS</span></div>
+                     </div>
+                 </a>
+						</div>
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[4]) }}">
+                     <img class="img-responsive" id="economicimg" src="/static/img/economic.jpg"  >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>ECONOMIC</span></div>
+                     </div>
+                 </a>
+						</div>
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[5]) }}">
+                     <img class="img-responsive" id="engineeringimg" src="/static/img/engineering.jpg" >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>ENGINEERING</span></div>
+                     </div>
+                 </a>
+						</div>
+					</div>
+          <div class="row">
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[6]) }}">
+                     <img class="img-responsive" id="psychologyimg" src="/static/img/psychology.jpg" >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>PSYCHOLOGY</span></div>
+                     </div>
+                 </a>
+						</div>
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[7]) }}">
+                     <img class="img-responsive" id="scienceimg" src="/static/img/science.jpg"  >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>SCIENCE</span></div>
+                     </div>
+                 </a>
+						</div>
+						<div class="col-sm-4">
+              <a href="{{ url_for('discussion', category = catlist[8]) }}">
+                     <img class="img-responsive" id="generaleducationimg" src="/static/img/generaleducation.jpg" >
+                     <div class = "text-block">
+                         <div class="facultytext"><span>GENERAL EDUCATION</span></div>
+                     </div>
+                 </a>
+						</div>
+            <div class="row">
+  						<div class="col-md-12" id="activitiesimgcontainer">
+                <a href="{{ url_for('discussion', category = catlist[9]) }}">
+                    <img class="img-responsive" id="activitiesimg" src="/static/img/activities5.jpg" >
+                    <div >
+                        <div class="activitiestext"><span>ACTIVITIES</span></div>
+                    </div>
+                </a>
+  						</div>
+  					</div>
+					</div>
+				</div>
+{#    </div>#}
+{% endblock %}

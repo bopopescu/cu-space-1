@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}CU Space</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+
+        <style>
+        .header {
+            background-color: white;
+        }
+        .container-fluid a {
+            color: gray;
+        }
+        .navigation{
+            float: right;
+            margin-top: 8px;
+            margin-right: 2%;
+        }
+        #menu{
+          margin-top: -8px;
+            margin-left: 190px;
+        }
+        #loginbutton{
+
+            margin-left: 30px;
+        }
+
+        .row{
+            margin-right: 0;
+        }
+        .rounded-circle{
+        border-radius: 50%;
+        }
+
+        .modal-header, .close {
+          background-color: #5cb85c;
+          color:white !important;
+          text-align: center;
+          font-size: 30px;
+        }
+        .modal-footer {
+          background-color: #f9f9f9;
+        }
+
+        .btn.btn-secondary.dropdown-toggle {
+            border-radius: 0;
+
+        }
+
+
+
+
+        </style>
+    {% endblock %}
+</head>
+<body>
+    <div id="header" class="header">
+        {% block header %}
+        <div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</button> <a class="navbar-brand" href="#"> CU Space</a>
+				</div>
+                <div class="navigation">
+                    <ul class="nav navbar-nav" id ="menu">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/tutor">Tutors</a>
+                        </li>
+                        <li>
+                            <a href="/job">Jobs</a>
+                        </li>
+                        <li>
+                            <a href="#" type="button" id="myBtn">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+          <!-- LOG IN Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+                </div>
+                <div class="modal-body" style="padding:40px 50px;">
+                  <form role="form">
+                    <div class="form-group">
+                      <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                      <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                      <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                      <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="" checked>Remember me</label>
+                    </div>
+                      <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                  <p>Not a member? <a href="#myModal2" data-toggle="modal" data-target="#myModal2" aria-pressed="true">Sign Up</a></p>
+                  <p>Forgot <a href="#">Password?</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!-- Sign up Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel2">
+                        Sign Up
+                    </h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="POST" id="formid" onsubmit="return checkall()">
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <div class="btn btn-secondary">
+                                    <i style="font-size:13px" class="fa">&#xf084;</i>
+                                </div>
+                            </div>
+                            <input type="password" class="form-control" id="password" placeholder="Password" name="regis_pass">
+                        </div>
+                        <br>
+                        <div id="passwordstatus">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <div class="btn btn-secondary">
+                                    <i style="font-size:15px" class="fa">&#xf2c0;</i>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" id="firstname" placeholder="Firstname" name="regis_first_name">
+                        </div>
+
+                        <br>
+                        <div id="firstnamestatus">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <div class="btn btn-secondary">
+                                    <i style="font-size:15px" class="fa">&#xf2c0;</i>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" id="lastname" placeholder="Lastname" name="regis_last_name">
+                        </div>
+
+                        <br>
+                        <div id="lastnamestatus">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <div class="btn btn-secondary">
+                                    <i style="font-size:15px" class="fa">&#xf095;</i>
+                                </div>
+                            </div>
+                            <input type="tel" class="form-control" id="phoneno" placeholder="Telephone" name="regis_phone">
+                        </div>
+
+
+
+                        <br>
+                        <div id="phonenostatus">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <div class="btn btn-secondary">
+                                    <i style="font-size:15px" class="fa">&#xf0e0;</i>
+                                </div>
+                            </div>
+                            <input type="email" class="form-control" id="email" placeholder="E-mail" name="regis_email">
+                        </div>
+
+
+
+                        <br>
+                        <div id="emailstatus">
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <input value="Sign Up" id="register" type="submit" class="btn btn-danger btn-block">
+
+
+
+                                </input>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>
+<script src="/static/registration.js"></script>
+
+        {% endblock %}
+    </div>
+    <div id="content">{% block content %}{% endblock %}</div>
+{#    <div id="footer">#}
+{#        {% block footer %}#}
+{#        &copy; Copyright 2018 by <a href="#">CU Space</a>.#}
+{#        {% endblock %}#}
+{#    </div>#}
+        </div>
+    </div>
+
+
+
+</body>
+</html>

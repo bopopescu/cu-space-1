@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Tutors - {% endblock %}
+{% block head %}
+    {{ super() }}
+{#    Put additional head code here #}
+    <style>
+        .jumbotron {
+{#        background-image: url("/static/img/job.jpg");#}
+        background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('/static/img/tutor.jpg');
+        color: white;
+    }
+    .col-lg-4 {
+        text-align: center;
+    }
+    .btn-secondary{
+        background-color: #6c757d;
+        color: white;
+        position: absolute;
+        bottom: 0;
+
+    }
+    .btn-secondary:hover{
+        background-color: #5a6268;
+        color: white;
+    }
+    .search-container {
+        float: left;
+        margin-top: 16px;
+        color: black;
+    }
+    .search-container input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+    }
+    .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+
+    #beatutor a{
+        color: white;
+    }
+
+
+    </style>
+{% endblock %}
+{% block content %}
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Find a tutor</h1>
+          <p>Our filtering system can help you find a tutor for you.</p>
+            <div class="search-container">
+                <form action="#">
+                    <input type="text" placeholder="Find tutors..." name="search" size="35">
+                    <button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </form>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="button" class="btn btn-primary" id="beatutor"><a href="registernewtutor">Be a tutor!</a></button>
+        </div>
+
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="/static/img/kane.jpg" alt="Generic placeholder image" width="140" height="140">
+              <h4><a href = /profile> Harry Kane </a></h4>
+            <p>I can teach soccer. Jolly day init ey?</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h4>Heading</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h4>Heading</h4>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h4>Heading</h4>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h4>Heading</h4>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h4>Heading</h4>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <hr>
+
+      </div> <!-- /container -->
+{% endblock %}

@@ -1,0 +1,590 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block head %}
+    {{ super() }}
+          <style>
+
+
+        .jumbotron {
+{#        background-image: url("/static/img/job.jpg");#}
+        background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('/static/img/tutor.jpg');
+        color: white;
+    }
+        .col-sm-4{
+          margin-bottom: 5px;
+        }
+
+        .col-md-10{
+            margin-left: 10%;
+        }
+
+        #activitiesimgcontainer{
+          margin-left: 15px;
+        }
+
+        .text-block {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: black;
+            color: white;
+            {#opacity: 1;#}
+        }
+
+            .btn-secondary{
+        background-color: #6c757d;
+        color: white;
+        position: absolute;
+        bottom: 0;
+
+    }
+    .btn-secondary:hover{
+        background-color: #5a6268;
+        color: white;
+    }
+    .search-container {
+        float: left;
+        margin-top: 16px;
+        color: black;
+    }
+    .search-container input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+    }
+    .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+
+        .col-sm-2{
+            width: 170px;
+        }
+
+        .facultytext {
+            position: inherit;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            font-family: "Helvetica Neue";
+            color: white;
+            white-space:nowrap;
+        }
+
+
+        .facultytext span{
+           color: white;
+           letter-spacing: -1px;
+           background: rgb(0,0,0); /* fallback color */
+           background: rgba(0,0,0, 0.7);
+           padding: 10px;
+            opacity: 1;
+            border-radius: 25px;
+             -webkit-transition: .3s linear;
+            transition: .3s linear;
+
+        }
+
+        .facultytext:hover span{
+           color: black;
+           letter-spacing: -1px;
+           background: rgb(0,0,0);
+           background: rgba(255, 204, 0, 1);
+           padding: 10px;
+            opacity: 1;
+            border-radius: 25px;
+             -webkit-transition: .3s linear;
+            transition: .3s linear;
+
+        }
+
+
+        #firstcol{
+          margin-right:  240px;
+        }
+
+        .activitiestext {
+            position: absolute;
+            top: 50%;
+            left: 42%;
+            font-size: 2.5em;
+            font-family: "Helvetica Neue";
+            {#opacity: 0.5;#}
+            color: white;
+            white-space:nowrap;
+        }
+
+
+        .activitiestext span{
+           color: white;
+           letter-spacing: -1px;
+           background: rgb(0,0,0); /* fallback color */
+           background: rgba(0,0,0, 0.7);
+           padding: 10px;
+            opacity: 1;
+            border-radius: 25px;
+             -webkit-transition: .3s linear;
+            transition: .3s linear;
+
+        }
+
+        .activitiestext:hover span{
+           color: black;
+           letter-spacing: -1px;
+           background: rgb(0,0,0); /* fallback color */
+           background: rgba(255, 204, 0, 1);
+           padding: 10px;
+            opacity: 1;
+            border-radius: 25px;
+             -webkit-transition: .3s linear;
+            transition: .3s linear;
+
+        }
+
+
+        .btnn {
+            background-color: cornflowerblue;
+            color: #ffffff;
+            border: none;
+            width: 40%
+        }
+
+
+        h1 {
+            font-size: 20px;
+            font-family: Helvetica Neue;
+        }
+
+
+
+
+        .btn.btn-secondary.dropdown-toggle {
+            border-radius: 0;
+
+        }
+
+          .container{
+              padding-top: 0px;
+          }
+
+          #finalbutton{
+
+          }
+
+      </style>
+{% endblock %}
+{% block content %}
+
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+<script>
+
+    function myFunction() {
+
+        var x = document.getElementById('b2');
+        var y = document.getElementById('img1');
+        var z = document.getElementById('b1');
+
+        if (x.style.display == 'none') {
+            x.style.display = 'block';
+            y.style.display = 'block';
+            z.style.display = 'none';
+
+
+        } else {
+            x.style.display = 'none';
+
+        }
+
+    }
+    function myFunction1() {
+        var x = document.getElementById('b3');
+        var y = document.getElementById('img2');
+        var z = document.getElementById('b2');
+
+        if (x.style.display == 'none') {
+            x.style.display = 'block';
+            y.style.display = 'block';
+            z.style.display = 'none';
+
+
+        } else {
+            x.style.display = 'none';
+
+        }
+
+    }
+    function myFunction2() {
+        var x = document.getElementById('b4');
+        var y = document.getElementById('img3');
+        var z = document.getElementById('b3');
+
+        if (x.style.display == 'none') {
+            x.style.display = 'block';
+            y.style.display = 'block';
+            z.style.display = 'none';
+
+
+        } else {
+            x.style.display = 'none';
+
+        }
+
+    }
+    function myFunction3() {
+        var x = document.getElementById('b5');
+        var y = document.getElementById('img4');
+        var z = document.getElementById('b4');
+
+        if (x.style.display == 'none') {
+            x.style.display = 'block';
+            y.style.display = 'block';
+            z.style.display = 'none';
+
+
+        } else {
+            x.style.display = 'none';
+
+        }
+
+    }
+    function myFunction4() {
+        var x = document.getElementById('b6');
+        var y = document.getElementById('img5');
+        var z = document.getElementById('b5');
+
+        if (x.style.display == 'none') {
+            x.style.display = 'block';
+            y.style.display = 'block';
+            z.style.display = 'none';
+
+
+        } else {
+            x.style.display = 'none';
+
+        }
+
+    }
+    function myFunction5() {
+        var y = document.getElementById('img6');
+        var z = document.getElementById('b6');
+
+        if (z.onclick) {
+
+            y.style.display = 'block';
+            z.style.display = 'none';
+
+
+        } else {
+            z.style.display = 'block';
+
+        }
+
+    }
+
+</script>
+
+<div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Post a discussion</h1>
+          <p>Let's Communicate and share.</p>
+
+        </div>
+      </div>
+<div class="container wrap">
+    <!-- Content here -->
+    <form method="POST" enctype=multipart/form-data  onsubmit="return checkallpost()">
+        {#         add form here#}
+        <div class="row">
+            <div class="col-md-6">
+
+{#                <br>#}
+{#                <h2>Post a discussion</h2>#}
+{#                <br>#}
+                <p>Upload Images(Maximum of 6 images)</p>
+                <br>
+                <img id="img0" src="#" alt="" style="display: none"/>
+                <img id="img1" src="#" alt="" style="display: none"/>
+                <img id="img2" src="#" alt="" style="display: none"/>
+                <img id="img3" src="#" alt="" style="display: none"/>
+                <img id="img4" src="#" alt="" style="display: none"/>
+                <img id="img5" src="#" alt="" style="display: none"/>
+                <button id="b1" onclick="btnClick()" type="button" class="btn btn-secondary btn-lg">+</button>
+                <input id="input-image-3" name="input-image" type="file" class="btn btn-secondary btn-lg" onchange="readURL(this) ;" accept="image/*"
+                       multiple style="display: none">
+                <br>
+
+
+            </div>
+            <div class="col-md-6">
+
+                <label for="post">Enter your Bio</label>
+                <form>
+{#                    <input type="post" class="form-control" id="pos" placeholder="" name="post_name">#}
+                    <textarea type = "post" class="form-control" rows="5" id="pos" name="post_name"></textarea>
+                    <div id="posstatus">
+
+                    </div>
+                </form>
+                <br>
+
+                <label for="post">Choose your open course category</label>
+                <div class="dropdown">
+
+                    <select name ='category'  class="selectpicker" id ="category" multiple title="Choose course category">
+{#                            <option value="selected" selected>Category : </option>#}
+{#                        >#}
+                        <option value="Language">Language</option>
+                        <option value="Science">Science</option>
+                        <option value="Math">Math</option>
+                        <option value="Architect">Architect</option>
+                        <option value="Psychology">Psychology</option>
+                        <option value="Business">Business</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Others">Others</option>
+                        </select>
+                </div>
+
+                <div id="categorystatus">
+                </div>
+
+                <br>
+                <label for="post">Enter your youtube video self-introduction</label>
+                <textarea class="form-control" rows="5" id="detail" name="info"></textarea>
+                <input type="hidden" name="status">
+
+                <div id="detailstatus">
+                </div>
+
+                <br>
+                <label for="post">Enter your teaching price</label>
+                <input type="number" class="form-control" id="post1" placeholder="xxxx Baht" name="price" min="0">
+
+                <div id="post1status">
+                </div>
+
+
+                <br>
+                <input id="finalbutton" type="submit" class="btn btn-primary" value="Create a discussion"></input>
+            </div>
+        </div>
+    </form>
+
+</div>
+</div>
+</div>
+<script>
+    function btnClick() {
+        $("#input-image-3").trigger('click');
+    }
+    $("#category").focus(function () {
+    {#$(".selectp icker").focus(function () {#}
+        {#var value = $(this).val()#}
+        var value = $('.selectpicker').selectpicker();
+        $(this).css("border-color", "#FF0000");
+        {#0080ff#}
+        if (checkcategory(value) == 1) {
+            $(this).css("border-color", "#FF0000");
+        } else {
+            $(this).css("border-color", "#00CD00");
+        }
+    });
+    $("#pos").focus(function () {
+        $(this).css("border-color", "#0080ff");
+    });
+    $("#pos").focus(function () {
+        $(this).css("border-color", "#0080ff");
+    });
+    $("#post").focus(function () {
+        $(this).css("border-color", "#0080ff");
+    });
+    $("#post1").focus(function () {
+        $(this).css("border-color", "#0080ff");
+    });
+    $("#detail").focus(function () {
+        $(this).css("border-color", "#0080ff");
+    });
+    $("#pos").focusout(function () {
+        var value = $(this).val()
+        if (checkpos(value) == 1) {
+            $(this).css("border-color", "#FF0000");
+        } else {
+            $(this).css("border-color", "#00CD00");
+        }
+    })
+    $("#post1").focusout(function () {
+        var value = $(this).val()
+        if (checkpost1(value) == 1) {
+            $(this).css("border-color", "#FF0000");
+        } else {
+            $(this).css("border-color", "#00CD00");
+        }
+    })
+    $("#post").focusout(function () {
+        var value = $(this).val()
+        if (checkpost(value) == 1) {
+            $(this).css("border-color", "#FF0000");
+        } else {
+            $(this).css("border-color", "#00CD00");
+        }
+    })
+    $("#detail").focusout(function () {
+        var value = $(this).val()
+        if (checkdetail(value) == 1) {
+            $(this).css("border-color", "#FF0000");
+        } else {
+            $(this).css("border-color", "#00CD00");
+        }
+    })
+    $("#category").focusout(function () {
+        var value = $(this).val()
+        if (checkcategory(value) == 1) {
+            $(this).css("border-color", "#FF0000");
+        } else {
+            $(this).css("border-color", "#00CD00");
+        }
+    });
+    $("#category").change(function () {
+        var value = $(this).val()
+        if (checkcategory(value) == 1) {
+            $(this).css("border-color", "#FF0000");
+        } else {
+            $(this).css("border-color", "#00CD00");
+        }
+    });
+
+    function checkallpost() {
+        var posvalue = $('#pos').val();
+        var postvalue = $('#post').val();
+        var post1value = $('#post1').val();
+        var detailvalue = $('#detail').val();
+        var categoryvalue = $('#category').val();
+
+        var $fileUpload = $("#input-image-3");
+        if (parseInt($fileUpload.get(0).files.length) > 6) {
+            alert("Can upload a maximum of 6 images");
+            return false;
+        }
+
+        if (checkpos(posvalue) == 1 ||
+            checkpost1(post1value) == 1 ||
+            checkdetail(detailvalue) == 1 ||
+            checkcategory(categoryvalue) == 1) {
+            alert("Please enter all of the information");
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function checkcategory(value) {
+        var ddl = document.getElementById("category");
+        var selectedValue = ddl.options[ddl.selectedIndex].value;
+        document.getElementById('categorystatus').style.color = "red";
+        if (selectedValue == "selected") {
+            document.getElementById('categorystatus').innerHTML = 'X Please enter the right category';
+            return 1
+        } else {
+            document.getElementById('categorystatus').innerHTML = '';
+            return 0
+        }
+    }
+
+    function checkpos(value) {
+        document.getElementById('posstatus').style.color = "red";
+        if (value.length <= 1) {
+            document.getElementById('posstatus').innerHTML = 'X Please enter your bio';
+            return 1;
+        } else {
+            document.getElementById('posstatus').innerHTML = '';
+            return 0;
+        }
+    }
+    function checkdetail(value) {
+        document.getElementById('detailstatus').style.color = "red";
+        if (value.length <= 1) {
+            document.getElementById('detailstatus').innerHTML = 'X Please enter the video link';
+            return 1;
+        } else {
+            document.getElementById('detailstatus').innerHTML = '';
+            return 0;
+        }
+    }
+    function checkpost1(value) {
+        document.getElementById('post1status').style.color = "red";
+        if (value.length == 0) {
+            document.getElementById('post1status').innerHTML = 'X Pleas enter the price';
+            return 1
+        }
+        if (value < 0) {
+            document.getElementById('post1status').innerHTML = 'X Value of the price must be more than zero';
+            return 1
+        } else {
+            document.getElementById('post1status').innerHTML = '';
+            return 0
+        }
+    }
+</script>
+
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+    function readURL(input) {
+        document.getElementById("img0").style.display = "none";
+        document.getElementById("img1").style.display = "none";
+        document.getElementById("img2").style.display = "none";
+        document.getElementById("img3").style.display = "none";
+        document.getElementById("img4").style.display = "none";
+        document.getElementById("img5").style.display = "none";
+        if (input.files.length > 6) {
+            alert("Can upload a maximum of 6 images");
+        } else {
+            if (input.files[0]) {
+                for (i = 0; i < input.files.length; i++)
+                    showImage(input, i);
+                document.getElementById("b1").innerHTML = "Change picture";
+            }
+        }
+    }
+    function showImage(input, n) {
+        var reader = new FileReader();
+        var str = '#img' + n;
+
+        reader.onload = function (e) {
+            $(str)
+                .attr('src', e.target.result)
+                .width(100)
+                .height(100);
+        };
+
+        reader.readAsDataURL(input.files[n]);
+        $(str).show();
+    }
+</script>
+
+
+<script src="/static/registration.js"></script>
+<script type="text/javascript">
+               $(document).ready(function() {
+               $('.selectpicker').selectpicker();
+              });
+          </script>
+{#<script src="/static/posting.js"></script>#}
+    </body>
+
+
+{% endblock %}
